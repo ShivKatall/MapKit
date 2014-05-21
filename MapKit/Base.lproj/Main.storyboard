@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uf3-fq-YjJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="jhb-CM-JV8"/>
+                                </connections>
+                            </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="vw5-dk-ru4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="b6A-Z0-lNT"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDv-cw-SOM">
+                                <rect key="frame" x="185" y="482" width="115" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Current Location">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="currentLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="obt-PD-UGy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uf3-fq-YjJ" secondAttribute="trailing" id="22d-Sm-IDH"/>
+                            <constraint firstItem="uf3-fq-YjJ" firstAttribute="leading" secondItem="vw5-dk-ru4" secondAttribute="leading" id="8Bo-M3-fEr"/>
+                            <constraint firstItem="uf3-fq-YjJ" firstAttribute="trailing" secondItem="vw5-dk-ru4" secondAttribute="trailing" id="Wk4-hI-tE2"/>
+                            <constraint firstAttribute="trailing" secondItem="GDv-cw-SOM" secondAttribute="trailing" constant="20" symbolic="YES" id="fTV-fH-OLI"/>
+                            <constraint firstItem="uf3-fq-YjJ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="gTm-OS-2tc"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="GDv-cw-SOM" secondAttribute="bottom" constant="12" id="gbF-0k-1FI"/>
+                            <constraint firstItem="GDv-cw-SOM" firstAttribute="top" secondItem="uf3-fq-YjJ" secondAttribute="bottom" constant="163" id="mg6-4J-hCA"/>
+                            <constraint firstItem="uf3-fq-YjJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ph8-wo-wKL"/>
+                            <constraint firstItem="uf3-fq-YjJ" firstAttribute="top" secondItem="vw5-dk-ru4" secondAttribute="top" id="wyi-P0-Vv5"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="1Jk-bl-9Gv"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="uf3-fq-YjJ" id="IDE-Wh-zVP"/>
+                        <outlet property="searchDisplayController" destination="rCm-3e-qlD" id="odk-hv-wqe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="rCm-3e-qlD">
+                    <connections>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="0cb-dZ-gpl"/>
+                        <outlet property="searchBar" destination="vw5-dk-ru4" id="KiK-NI-Jbh"/>
+                        <outlet property="searchContentsController" destination="vXZ-lx-hvc" id="LWg-ds-3BX"/>
+                        <outlet property="searchResultsDataSource" destination="vXZ-lx-hvc" id="yHw-Um-yEr"/>
+                        <outlet property="searchResultsDelegate" destination="vXZ-lx-hvc" id="iF8-vb-jHx"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="17" y="-47"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
